@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Merlin\SalesInsights\Api\AggregatorInterface" type="Merlin\SalesInsights\Model\Aggregator"/>
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="merlin_salesinsights_rebuild" xsi:type="object">Merlin\SalesInsights\Console\Command\RebuildSalesInsightsCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="merlin_salesinsights_report_listing_data_source" xsi:type="string">Merlin\SalesInsights\Model\ResourceModel\Report\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
