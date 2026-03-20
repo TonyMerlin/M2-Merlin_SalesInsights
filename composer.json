@@ -1,0 +1,13 @@
+{
+  "name": "merlin/module-salesinsights",
+  "description": "Sales reporting by manufacturer and attribute set for Magento 2",
+  "type": "magento2-module",
+  "license": ["proprietary"],
+  "version": "1.0.0",
+  "autoload": {
+    "files": ["registration.php"],
+    "psr-4": {
+      "Merlin\\SalesInsights\\": ""
+    }
+  }
+}
