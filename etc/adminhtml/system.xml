@@ -2,21 +2,59 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <section id="merlin_salesinsights" translate="label" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="0">
-            <label>Merlin Sales Insights</label>
-            <tab>reports</tab>
+        <tab id="merlin" translate="label" sortOrder="900">
+            <label>Merlin</label>
+        </tab>
+
+        <section id="merlin_salesinsights"
+                 translate="label"
+                 type="text"
+                 sortOrder="900"
+                 showInDefault="1"
+                 showInWebsite="1"
+                 showInStore="0">
+            <label>Sales Insights</label>
+            <tab>merlin</tab>
             <resource>Merlin_SalesInsights::report</resource>
-            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+
+            <group id="general"
+                   translate="label"
+                   type="text"
+                   sortOrder="10"
+                   showInDefault="1"
+                   showInWebsite="1"
+                   showInStore="0">
                 <label>General</label>
-                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+
+                <field id="enabled"
+                       translate="label"
+                       type="select"
+                       sortOrder="10"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0">
                     <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="manufacturer_attribute_code" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+
+                <field id="manufacturer_attribute_code"
+                       translate="label"
+                       type="text"
+                       sortOrder="20"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0">
                     <label>Manufacturer Attribute Code</label>
                     <comment>Default: manufacturer</comment>
                 </field>
-                <field id="included_order_statuses" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+
+                <field id="included_order_statuses"
+                       translate="label"
+                       type="text"
+                       sortOrder="30"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0">
                     <label>Included Order Statuses</label>
                     <comment>Comma-separated. Example: processing,complete,delivery_confirmed,finance_accepted,delivery_confirmed_old,order_complete</comment>
                 </field>
