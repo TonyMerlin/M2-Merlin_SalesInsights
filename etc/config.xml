@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <merlin_salesinsights>
+            <general>
+                <enabled>1</enabled>
+                <manufacturer_attribute_code>manufacturer</manufacturer_attribute_code>
+                <included_order_statuses>processing,complete,delivery_confirmed,finance_accepted,delivery_confirmed_old,order_complete</included_order_statuses>
+            </general>
+        </merlin_salesinsights>
+    </default>
+</config>
