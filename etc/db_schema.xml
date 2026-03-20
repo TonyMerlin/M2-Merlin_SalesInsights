@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="merlin_salesinsights_aggregate" resource="default" engine="innodb" comment="Merlin Sales Insights Aggregate">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+
+        <column xsi:type="varchar" name="period_type" nullable="false" length="16" comment="daily|weekly|monthly"/>
+        <column xsi:type="date" name="period_start" nullable="false" comment="Period Start"/>
+        <column xsi:type="date" name="period_end" nullable="false" comment="Period End"/>
+
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" default="0" comment="Store ID"/>
+        <column xsi:type="int" name="manufacturer_option_id" unsigned="true" nullable="false" default="0" comment="Manufacturer Option ID"/>
+        <column xsi:type="varchar" name="manufacturer_label" nullable="false" length="255" default="" comment="Manufacturer Label"/>
+        <column xsi:type="smallint" name="attribute_set_id" unsigned="true" nullable="false" default="0" comment="Attribute Set ID"/>
+        <column xsi:type="varchar" name="attribute_set_name" nullable="false" length="255" default="" comment="Attribute Set Name"/>
+
+        <column xsi:type="int" name="order_count" unsigned="true" nullable="false" default="0" comment="Distinct Order Count"/>
+        <column xsi:type="decimal" name="qty_ordered" precision="20" scale="4" nullable="false" default="0.0000" comment="Qty Ordered"/>
+        <column xsi:type="decimal" name="base_row_total" precision="20" scale="4" nullable="false" default="0.0000" comment="Base Row Total"/>
+        <column xsi:type="decimal" name="base_discount_amount" precision="20" scale="4" nullable="false" default="0.0000" comment="Base Discount Amount"/>
+        <column xsi:type="decimal" name="base_tax_amount" precision="20" scale="4" nullable="false" default="0.0000" comment="Base Tax Amount"/>
+        <column xsi:type="decimal" name="base_row_total_incl_tax" precision="20" scale="4" nullable="false" default="0.0000" comment="Base Row Total Incl Tax"/>
+        <column xsi:type="decimal" name="base_net_sales" precision="20" scale="4" nullable="false" default="0.0000" comment="Base Net Sales"/>
+
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="true" comment="Updated At"/>
+
+        <constraint xsi:type="unique" referenceId="MERLIN_SALESINSIGHTS_UNQ_PERIOD_STORE_MANUFACTURER_SET">
+            <column name="period_type"/>
+            <column name="period_start"/>
+            <column name="period_end"/>
+            <column name="store_id"/>
+            <column name="manufacturer_option_id"/>
+            <column name="attribute_set_id"/>
+        </constraint>
+
+        <index referenceId="MERLIN_SALESINSIGHTS_IDX_PERIOD_TYPE_START" indexType="btree">
+            <column name="period_type"/>
+            <column name="period_start"/>
+        </index>
+        <index referenceId="MERLIN_SALESINSIGHTS_IDX_MANUFACTURER_LABEL" indexType="btree">
+            <column name="manufacturer_label"/>
+        </index>
+        <index referenceId="MERLIN_SALESINSIGHTS_IDX_ATTRIBUTE_SET_NAME" indexType="btree">
+            <column name="attribute_set_name"/>
+        </index>
+    </table>
+</schema>
