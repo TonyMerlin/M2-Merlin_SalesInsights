@@ -1,0 +1,33 @@
+{
+  "merlin_salesinsights_aggregate": {
+    "column": {
+      "entity_id": true,
+      "period_type": true,
+      "period_start": true,
+      "period_end": true,
+      "store_id": true,
+      "manufacturer_option_id": true,
+      "manufacturer_label": true,
+      "attribute_set_id": true,
+      "attribute_set_name": true,
+      "order_count": true,
+      "qty_ordered": true,
+      "base_row_total": true,
+      "base_discount_amount": true,
+      "base_tax_amount": true,
+      "base_row_total_incl_tax": true,
+      "base_net_sales": true,
+      "created_at": true,
+      "updated_at": true
+    },
+    "index": {
+      "MERLIN_SALESINSIGHTS_IDX_PERIOD_TYPE_START": true,
+      "MERLIN_SALESINSIGHTS_IDX_MANUFACTURER_LABEL": true,
+      "MERLIN_SALESINSIGHTS_IDX_ATTRIBUTE_SET_NAME": true
+    },
+    "constraint": {
+      "PRIMARY": true,
+      "MERLIN_SALESINSIGHTS_UNQ_PERIOD_STORE_MANUFACTURER_SET": true
+    }
+  }
+}
