@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="merlin_salesinsights_rebuild_aggregates"
+             instance="Merlin\SalesInsights\Cron\RebuildAggregates"
+             method="execute">
+            <schedule>25 2 * * *</schedule>
+        </job>
+    </group>
+</config>
