@@ -32,7 +32,8 @@ Runs daily at 02:25 and rebuilds the last 400 days.
 - Uses base currency amounts.
 - Excludes canceled orders by excluding state = canceled.
 
-#v1.0.3
+##v1.0.3
+
 Changed collection to daily totals with filters
 
 
