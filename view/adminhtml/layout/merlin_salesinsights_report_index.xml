@@ -4,6 +4,10 @@
     <body>
         <referenceContainer name="content">
             <uiComponent name="merlin_salesinsights_report_listing"/>
+            <block class="Merlin\SalesInsights\Block\Adminhtml\Report\Totals"
+                   name="merlin_salesinsights.report.totals"
+                   template="Merlin_SalesInsights::report/totals.phtml"
+                   after="-"/>
         </referenceContainer>
     </body>
 </page>
