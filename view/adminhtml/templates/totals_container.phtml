@@ -1,0 +1,37 @@
+<div id="merlin-salesinsights-totals"
+     data-mage-init='{
+        "Merlin_SalesInsights/js/report-totals": {
+            "totalsUrl": "<?= $block->escapeUrl($block->getUrl("merlin_salesinsights/report/totals")) ?>",
+            "provider": "merlin_salesinsights_report_listing.merlin_salesinsights_report_listing_data_source"
+        }
+     }'>
+    <div class="admin__data-grid-wrap" style="margin-top:20px;">
+        <table class="data-grid">
+            <thead>
+                <tr>
+                    <th class="data-grid-th" colspan="7" style="text-align:left;">Filtered Totals</th>
+                </tr>
+                <tr>
+                    <th class="data-grid-th">Orders</th>
+                    <th class="data-grid-th">Qty Ordered</th>
+                    <th class="data-grid-th">Base Row Total</th>
+                    <th class="data-grid-th">Base Discount</th>
+                    <th class="data-grid-th">Base Tax</th>
+                    <th class="data-grid-th">Base Row Total Incl Tax</th>
+                    <th class="data-grid-th">Base Net Sales</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col-order_count">-</td>
+                    <td class="col-qty_ordered">-</td>
+                    <td class="col-base_row_total">-</td>
+                    <td class="col-base_discount_amount">-</td>
+                    <td class="col-base_tax_amount">-</td>
+                    <td class="col-base_row_total_incl_tax">-</td>
+                    <td class="col-base_net_sales">-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
