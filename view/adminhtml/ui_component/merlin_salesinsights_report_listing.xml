@@ -46,41 +46,11 @@
             </settings>
         </column>
 
-        <column name="period_type">
-            <settings>
-                <filter>select</filter>
-                <dataType>select</dataType>
-                <label translate="true">Period</label>
-                <options>
-                    <option name="daily" xsi:type="array">
-                        <item name="label" xsi:type="string">Daily</item>
-                        <item name="value" xsi:type="string">daily</item>
-                    </option>
-                    <option name="weekly" xsi:type="array">
-                        <item name="label" xsi:type="string">Weekly</item>
-                        <item name="value" xsi:type="string">weekly</item>
-                    </option>
-                    <option name="monthly" xsi:type="array">
-                        <item name="label" xsi:type="string">Monthly</item>
-                        <item name="value" xsi:type="string">monthly</item>
-                    </option>
-                </options>
-            </settings>
-        </column>
-
-        <column name="period_start" class="Magento\Ui\Component\Listing\Columns\Date">
+        <column name="period_start">
             <settings>
                 <filter>dateRange</filter>
-                <dataType>date</dataType>
-                <label translate="true">Period Start</label>
-            </settings>
-        </column>
-
-        <column name="period_end" class="Magento\Ui\Component\Listing\Columns\Date">
-            <settings>
-                <filter>dateRange</filter>
-                <dataType>date</dataType>
-                <label translate="true">Period End</label>
+                <dataType>text</dataType>
+                <label translate="true">Date</label>
             </settings>
         </column>
 
@@ -91,17 +61,21 @@
             </settings>
         </column>
 
-        <column name="manufacturer_label">
+        <column name="manufacturer_label" component="Magento_Ui/js/grid/columns/select">
             <settings>
-                <filter>text</filter>
+                <filter>select</filter>
+                <dataType>select</dataType>
                 <label translate="true">Manufacturer</label>
+                <options class="Merlin\SalesInsights\Model\Config\Source\ManufacturerOptions"/>
             </settings>
         </column>
 
-        <column name="attribute_set_name">
+        <column name="attribute_set_name" component="Magento_Ui/js/grid/columns/select">
             <settings>
-                <filter>text</filter>
+                <filter>select</filter>
+                <dataType>select</dataType>
                 <label translate="true">Attribute Set</label>
+                <options class="Merlin\SalesInsights\Model\Config\Source\AttributeSetOptions"/>
             </settings>
         </column>
 
