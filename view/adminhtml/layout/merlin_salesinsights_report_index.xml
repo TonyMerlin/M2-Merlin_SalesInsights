@@ -4,9 +4,9 @@
     <body>
         <referenceContainer name="content">
             <uiComponent name="merlin_salesinsights_report_listing"/>
-            <block class="Merlin\SalesInsights\Block\Adminhtml\Report\Totals"
-                   name="merlin_salesinsights.report.totals"
-                   template="Merlin_SalesInsights::report/totals.phtml"
+            <block class="Magento\Backend\Block\Template"
+                   name="merlin_salesinsights.report.totals.container"
+                   template="Merlin_SalesInsights::report/totals_container.phtml"
                    after="-"/>
         </referenceContainer>
     </body>
