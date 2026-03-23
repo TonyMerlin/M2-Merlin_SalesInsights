@@ -31,3 +31,9 @@ Runs daily at 02:25 and rebuilds the last 400 days.
 - Parent rows are counted; child rows are ignored.
 - Uses base currency amounts.
 - Excludes canceled orders by excluding state = canceled.
+
+#v1.0.3
+Changed collection to daily totals with filters
+Changed Brand and Attribute set to dropdowns
+Fixed Grid Reports
+Fixed Dates 
