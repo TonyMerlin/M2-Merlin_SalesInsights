@@ -44,14 +44,11 @@ class Totals extends Action
 
         $dateFilter = $filters['period_start'] ?? [];
         if (is_array($dateFilter)) {
-            $from = $this->normalizeDate($dateFilter['from'] ?? null);
-            $to = $this->normalizeDate($dateFilter['to'] ?? null);
-
-            if ($from) {
-                $select->where('main_table.period_start >= ?', $from);
+            if (!empty($dateFilter['from'])) {
+                $select->where('main_table.period_start >= ?', $dateFilter['from']);
             }
-            if ($to) {
-                $select->where('main_table.period_start <= ?', $to);
+            if (!empty($dateFilter['to'])) {
+                $select->where('main_table.period_start <= ?', $dateFilter['to']);
             }
         }
 
@@ -81,7 +78,6 @@ class Totals extends Action
 
         return $result->setData([
             'success' => true,
-            'debug_filters' => $filters,
             'totals' => [
                 'order_count' => (int)($row['order_count'] ?? 0),
                 'qty_ordered' => (float)($row['qty_ordered'] ?? 0),
@@ -92,33 +88,5 @@ class Totals extends Action
                 'base_net_sales' => (float)($row['base_net_sales'] ?? 0),
             ]
         ]);
-    }
-
-    private function normalizeDate(?string $value): ?string
-    {
-        if (!$value) {
-            return null;
-        }
-
-        $value = trim($value);
-
-        // Already ISO format
-        if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $value)) {
-            return $value;
-        }
-
-        // dd/mm/yyyy
-        $dt = \DateTime::createFromFormat('d/m/Y', $value);
-        if ($dt instanceof \DateTime) {
-            return $dt->format('Y-m-d');
-        }
-
-        // yyyy-mm-dd hh:mm:ss or other parseable values
-        try {
-            $dt = new \DateTime($value);
-            return $dt->format('Y-m-d');
-        } catch (\Throwable $e) {
-            return null;
-        }
     }
 }
