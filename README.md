@@ -2,9 +2,8 @@
 
 ## What it does
 - Aggregates sales by manufacturer + attribute set
-- Stores daily, weekly, and monthly rollups
 - Exposes an admin grid under Reports > Sales Insights
-- Supports filtering by period type, date range, manufacturer, attribute set, store, revenue, orders, qty, etc.
+- Supports filtering by date range, manufacturer, attribute set, store, revenue, orders, qty, etc.
 
 ## Install
 bin/magento module:enable Merlin_SalesInsights
