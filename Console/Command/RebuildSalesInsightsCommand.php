@@ -34,6 +34,6 @@ class RebuildSalesInsightsCommand extends Command
         $this->aggregator->rebuild($from ?: null, $to ?: null);
         $output->writeln('<info>Done.</info>');
 
-        return Command::SUCCESS;
+        return 0;
     }
 }
