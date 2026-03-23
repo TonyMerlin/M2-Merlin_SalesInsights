@@ -1,0 +1,33 @@
+<?php
+/** @var \Merlin\SalesInsights\Block\Adminhtml\Report\Totals $block */
+$totals = $block->getTotals();
+?>
+<div class="admin__data-grid-wrap" style="margin-top:20px;">
+    <table class="data-grid">
+        <thead>
+            <tr>
+                <th class="data-grid-th" colspan="7" style="text-align:left;">Filtered Totals</th>
+            </tr>
+            <tr>
+                <th class="data-grid-th">Orders</th>
+                <th class="data-grid-th">Qty Ordered</th>
+                <th class="data-grid-th">Base Row Total</th>
+                <th class="data-grid-th">Base Discount</th>
+                <th class="data-grid-th">Base Tax</th>
+                <th class="data-grid-th">Base Row Total Incl Tax</th>
+                <th class="data-grid-th">Base Net Sales</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><?= (int)$totals['order_count'] ?></td>
+                <td><?= number_format((float)$totals['qty_ordered'], 4) ?></td>
+                <td><?= $block->escapeHtml($block->formatPrice((float)$totals['base_row_total'])) ?></td>
+                <td><?= $block->escapeHtml($block->formatPrice((float)$totals['base_discount_amount'])) ?></td>
+                <td><?= $block->escapeHtml($block->formatPrice((float)$totals['base_tax_amount'])) ?></td>
+                <td><?= $block->escapeHtml($block->formatPrice((float)$totals['base_row_total_incl_tax'])) ?></td>
+                <td><strong><?= $block->escapeHtml($block->formatPrice((float)$totals['base_net_sales'])) ?></strong></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
